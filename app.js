@@ -8,7 +8,7 @@ wspa.config(function($routeProvider){
     })
     .when('/forecast',{
         templateUrl: 'pages/forecast.html',
-        controller: 'forecastController'
+        controller: 'weatherController'
     })
 });
 
@@ -23,8 +23,9 @@ wspa.controller('mainController', ['$scope','nameService', function ($scope,name
       });
 }]);
 
-wspa.controller('forecastController',['$scope','nameService', function ($scope,nameService) {
+wspa.controller('weatherController',['$scope','$resource','$log','nameService', function ($scope,$resource,$log,nameService) {
     $scope.cityName = nameService.city; 
-    console.log($scope.cityName);
+    $scope.forecastApi = $resource("http://api.openweathermap.org/data/2.5/forecast/daily", { callback: "JSON_CALLBACK" }, {get: { method: "JSONP"}});
+    $scope.forecastResult = $scope.forecastApi.get({ q: $scope.cityName, cnt:5 , appid:'8247af4320c30be0cffb3d510f263690'});
 }]);
 
