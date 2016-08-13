@@ -27,5 +27,12 @@ wspa.controller('weatherController',['$scope','$resource','$log','nameService', 
     $scope.cityName = nameService.city; 
     $scope.forecastApi = $resource("http://api.openweathermap.org/data/2.5/forecast/daily", { callback: "JSON_CALLBACK" }, {get: { method: "JSONP"}});
     $scope.forecastResult = $scope.forecastApi.get({ q: $scope.cityName, cnt:5 , appid:'8247af4320c30be0cffb3d510f263690'});
+    $scope.convertToCelcius = function(degK) {
+        return  Math.round(degK - 273.15) ;
+    }
+    $scope.convertToDate = function(dt){
+        return new Date(dt * 1000); 
+    }
+    
 }]);
 

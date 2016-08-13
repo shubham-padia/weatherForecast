@@ -4,13 +4,13 @@
         <div class="col-md-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <div class="panel-title">{{ forecast.dt }}</h3></div>
+                    <div class="panel-title">{{ convertToDate(forecast.dt) | date: 'dd-MM-yyyy'}}</h3></div>
                 </div>
                 <div class="panel-body">
-                    <label>Daytime Temperature: {{ forecast.temp.day }} | </label>
-                    <label>Nighttime Temperature: {{ forecast.temp.night }} | </label>
-                    <label>Minimum Temperature: {{ forecast.temp.min }} | </label>
-                    <label>Maximum Temperature: {{ forecast.temp.max }}</label>
+                    <label>Daytime Temperature: {{ convertToCelcius(forecast.temp.day) }} | </label>
+                    <label>Nighttime Temperature: {{ convertToCelcius(forecast.temp.night) }} | </label>
+                    <label>Minimum Temperature: {{ convertToCelcius(forecast.temp.min) }} | </label>
+                    <label>Maximum Temperature: {{ convertToCelcius(forecast.temp.max) }}</label>
                 </div>
             </div>
         </div>
