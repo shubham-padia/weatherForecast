@@ -10,6 +10,10 @@ wspa.config(function($routeProvider){
         templateUrl: 'pages/forecast.html',
         controller: 'weatherController'
     })
+    .when('/forecast/:daysNo',{
+        templateUrl:'pages/forecast.html',
+        controller: 'weatherController'
+    })
 });
 
 wspa.service('nameService',function(){
@@ -23,10 +27,19 @@ wspa.controller('mainController', ['$scope','nameService', function ($scope,name
       });
 }]);
 
-wspa.controller('weatherController',['$scope','$resource','$log','nameService', function ($scope,$resource,$log,nameService) {
-    $scope.cityName = nameService.city; 
+wspa.controller('weatherController',['$scope','$resource','$log','$routeParams','nameService', function ($scope,$resource,$log,$routeParams,nameService) {
+    var dayRange = [];
+    for(var j = 1; j < 6 ; j++){
+        dayRange.push(j);
+    }
+    $scope.dayRange = dayRange;
+
+    $scope.cityName = nameService.city;
+    $scope.daysNo = $routeParams.daysNo || 5;
+
     $scope.forecastApi = $resource("http://api.openweathermap.org/data/2.5/forecast/daily", { callback: "JSON_CALLBACK" }, {get: { method: "JSONP"}});
-    $scope.forecastResult = $scope.forecastApi.get({ q: $scope.cityName, cnt:5 , appid:'8247af4320c30be0cffb3d510f263690'});
+    $scope.forecastResult = $scope.forecastApi.get({ q: $scope.cityName, cnt:$scope.daysNo , appid:'8247af4320c30be0cffb3d510f263690'});
+    
     $scope.convertToCelcius = function(degK) {
         return  Math.round(degK - 273.15) ;
     }

@@ -1,4 +1,10 @@
-<h2> {{ cityName }} </h2>
+<a href="#/"><h5> Search Another City </h5></a>
+<h3> This is the Forecast for {{ cityName }} </h3><br>
+<hr>
+<span> No. of Days </span>
+<a ng-repeat="i in dayRange" href="#/forecast/{{ i }}" ng-class="{ 'bg-primary': daysNo == {{ i }} }" >  {{ i }} &nbsp</a>
+</hr><br>
+
 <div ng-repeat="forecast in forecastResult.list">
     <div class="row">
         <div class="col-md-12">
