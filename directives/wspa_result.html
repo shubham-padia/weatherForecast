@@ -1,0 +1,15 @@
+<div class="row" >
+        <div class="col-md-12">
+            <div class="panel panel-primary" style="width: 80vw; left:10vw">
+                <div class="panel-heading">
+                    <div class="panel-title">{{ convertToDate({ dt : forecast.dt }) | date: dateFormat}}</h3></div>
+                </div>
+                <div class="panel-body">
+                    <label>Daytime Temperature: {{ convertToTempUnit({ temp : forecast.temp.day })}} | </label>
+                    <label>Nighttime Temperature: {{ convertToTempUnit({ temp : forecast.temp.night })}} | </label>
+                    <label>Minimum Temperature: {{ convertToTempUnit({ temp : forecast.temp.min })}} | </label>
+                    <label>Maximum Temperature: {{ convertToTempUnit({ temp : forecast.temp.max })}}</label>
+                </div>
+            </div>
+        </div>
+    </div>

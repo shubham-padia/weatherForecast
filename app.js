@@ -49,3 +49,17 @@ wspa.controller('weatherController',['$scope','$resource','$log','$routeParams',
     
 }]);
 
+wspa.directive('wspaResult',function(){
+    return {
+        restrict: 'AE',
+        templateUrl: 'directives/wspa_result.html',
+        replace:true,
+        scope:{
+            forecast: '=',
+            convertToTempUnit: '&',
+            convertToDate: '&',
+            dateFormat: '@',
+        }
+    }
+});
+

@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
 <html ng-app="wspa">
     <head>
         <title>Weather Forecast</title>
@@ -6,22 +8,26 @@
         <script src="public/angular-1.5.7/angular-route.js" ></script>
         <script src="public/angular-1.5.7/angular-resource.js" ></script>
         <script src="app.js"></script>
+        <style>
+            
+        </style>
     </head>
+
     <body >
-        <header>
+        <header style="padding : 0px">
             <nav class="navbar navbar-default">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#"> WEATHER FORECAST </a>
+                        <a class="navbar-brand" href="#/"> WEATHER FORECAST </a>
                     </div>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><i class="fa fa-home">Home</i></a></li>
+                        <li><a href="#/"><i class="fa fa-home">Home</i></a></li>
                     </ul>
                 </div>
             </nav>
         </header>
-        <div ng-view>
+        <div ng-view style="padding:5vmin">
                 
         </div>
        </body>

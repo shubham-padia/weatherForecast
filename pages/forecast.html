@@ -1,24 +1,11 @@
 <a href="#/"><h5> Search Another City </h5></a>
-<h3> This is the Forecast for {{ cityName }} </h3><br>
+<h2> This is the Forecast for {{ cityName }} </h2>
 <hr>
 <span> No. of Days </span>
 <a ng-repeat="i in dayRange" href="#/forecast/{{ i }}" ng-class="{ 'bg-primary': daysNo == {{ i }} }" >  {{ i }} &nbsp</a>
-</hr><br>
+</hr><br><br>
 
 <div ng-repeat="forecast in forecastResult.list">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="panel-title">{{ convertToDate(forecast.dt) | date: 'dd-MM-yyyy'}}</h3></div>
-                </div>
-                <div class="panel-body">
-                    <label>Daytime Temperature: {{ convertToCelcius(forecast.temp.day) }} | </label>
-                    <label>Nighttime Temperature: {{ convertToCelcius(forecast.temp.night) }} | </label>
-                    <label>Minimum Temperature: {{ convertToCelcius(forecast.temp.min) }} | </label>
-                    <label>Maximum Temperature: {{ convertToCelcius(forecast.temp.max) }}</label>
-                </div>
-            </div>
-        </div>
-    </div>
+    <wspa-result convert-to-temp-unit="convertToCelcius(temp)" convert-to-date="convertToDate(dt)" date-format="dd-MM-yyyy" forecast = "forecast"  >
+    </wspa-result>
 </div>
