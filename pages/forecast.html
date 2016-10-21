@@ -1,7 +1,7 @@
 <a href="#/"><h5> Search Another City </h5></a>
 <h2> This is the Forecast for {{ cityName }} </h2>
 <hr>
-<span> No. of Days </span>
+<span> Number of Days </span>
 <a ng-repeat="i in dayRange" href="#/forecast/{{ i }}" ng-class="{ 'bg-primary': daysNo == {{ i }} }" >  {{ i }} &nbsp</a>
 </hr><br><br>
 
