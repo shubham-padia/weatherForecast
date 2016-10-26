@@ -1,6 +1,6 @@
 # Weather Forecast  App in Angular JS.
 
-This is a simple app created to practice AngularJs, which can be used to search weather details of a city upto a maximum of 5 days.
+This is a simple app that is created to practice AngularJs, which can be used to search weather details of a city upto a maximum of 5 days.
 It shows the day time, night time, minimum and maximum temperature for each day offering maximum convenience. 
 
 ## Check out the demo [now](http://shubhamp.in/forecast/)
